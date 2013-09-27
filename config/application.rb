@@ -12,6 +12,9 @@ module Bitsapp
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
+    config.before_initialize do
+      Bitsapp::Application.routes.default_url_options[:host] = "localhost:3000" if Rails.env.development?
+    end
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
     # config.time_zone = 'Central Time (US & Canada)'

@@ -11,6 +11,8 @@ gem 'turbolinks'
 
 gem 'jbuilder', '~> 1.2'
 
+gem 'haml-rails'
+
 group :doc do
   gem 'sdoc', require: false
 end
