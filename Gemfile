@@ -24,3 +24,5 @@ gem 'devise_invitable', '~> 1.2.1'
 gem 'omniauth'
 gem 'omniauth-facebook'
 
+gem 'zurb-foundation'
+
