@@ -1,3 +1,5 @@
+require "omniauth-facebook"
+require "#{Rails.root.join('config/lib', 'oauth_init.rb')}"
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
@@ -9,6 +11,8 @@ Devise.setup do |config|
   # Configure the class responsible to send e-mails.
   # config.mailer = "Devise::Mailer"
 
+  config.omniauth :facebook, FACEBOOK[:api_key], FACEBOOK[:secret_key],
+    {scope: 'email, publish_stream'}
   # ==> ORM configuration
   # Load and configure the ORM. Supports :active_record (default) and
   # :mongoid (bson_ext recommended) by default. Other ORMs may be

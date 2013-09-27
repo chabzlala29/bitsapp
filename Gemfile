@@ -19,3 +19,8 @@ end
 
 gem 'devise', '~> 3.0.0'
 gem 'devise_invitable', '~> 1.2.1'
+
+#facebook and other oauth
+gem 'omniauth'
+gem 'omniauth-facebook'
+
