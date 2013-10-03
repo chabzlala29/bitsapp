@@ -6,105 +6,18 @@
 /[if IE 9 ] <html class="ie9" lang="en">
 / [if (gt IE 9)|!(IE)]><!
 %html{lang: "en"}
-  %head
-    %meta{charset: "utf-8"}/
-    / Uncomment to make IE8 render like IE7
-    / <meta http-equiv="X-UA-Compatible" content="IE=7" />
-    / Set the viewport width to device width for mobile
-    %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}/
-    %title= content_for?(:title) ? yield(:title) : "Bits App"
-    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
-    = javascript_include_tag "application", "data-turbolinks-track" => true
-    = javascript_include_tag "vendor/custom.modernizr"
-    = csrf_meta_tags
+  =render "layouts/head"
   %body
     .row
       .large-12.columns
-        =render "header_nav"
-        .row
-          / Side Bar
-          .large-4.small-12.columns
-            %img{src: "http://placehold.it/500x500&text=Logo"}/
-            .hide-for-small.panel
-              %h3 Header
-              %h5.subheader
-                Risus ligula, aliquam nec fermentum vitae, sollicitudin eget urna. Donec dignissim nibh fermentum odio ornare sagittis.
-            %a{href: "#"}
-              .panel.callout.radius
-                %h6 99  items in your cart
-          / End Side Bar
-          / Thumbnails
-          .large-8.columns
-            .row
-              .large-4.small-6.columns
-                %img{src: "http://placehold.it/1000x1000&text=Thumbnail"}/
-                .panel
-                  %h5 Item Name
-                  %h6.subheader $000.00
-              .large-4.small-6.columns
-                %img{src: "http://placehold.it/500x500&text=Thumbnail"}/
-                .panel
-                  %h5 Item Name
-                  %h6.subheader $000.00
-              .large-4.small-6.columns
-                %img{src: "http://placehold.it/500x500&text=Thumbnail"}/
-                .panel
-                  %h5 Item Name
-                  %h6.subheader $000.00
-              .large-4.small-6.columns
-                %img{src: "http://placehold.it/500x500&text=Thumbnail"}/
-                .panel
-                  %h5 Item Name
-                  %h6.subheader $000.00
-              .large-4.small-6.columns
-                %img{src: "http://placehold.it/500x500&text=Thumbnail"}/
-                .panel
-                  %h5 Item Name
-                  %h6.subheader $000.00
-              .large-4.small-6.columns
-                %img{src: "http://placehold.it/500x500&text=Thumbnail"}/
-                .panel
-                  %h5 Item Name
-                  %h6.subheader $000.00
-            / End Thumbnails
-            / Managed By
-            .row
-              .large-12.columns
-                .panel
-                  .row
-                    .large-2.small-6.columns
-                      %img{src: "http://placehold.it/300x300&text=Site Owner"}/
-                    .large-10.small-6.columns
-                      %strong
-                        This Site Is Managed By
-                        %hr/
-                      Risus ligula, aliquam nec fermentum vitae, sollicitudin eget urna. Donec dignissim nibh fermentum odio ornare sagittis
-              / End Managed By
-        / Footer
-        %footer.row
-          .large-12.columns
-            %hr/
-            .row
-              .large-6.columns
-                %p © Copyright no one at all. Go to town.
-              .large-6.columns
-                %ul.inline-list.right
-                  %li
-                    %a{href: "#"} Link 1
-                  %li
-                    %a{href: "#"} Link 2
-                  %li
-                    %a{href: "#"} Link 3
-                  %li
-                    %a{href: "#"} Link 4
-        / End Footer
-
-
-    %div.row
-      -flash.each do |name, msg|
-        =content_tag :div, msg, class: name
+        -flash.each do |name, msg|
+          =content_tag :div, msg, class: name
       -if user_signed_in?
-        =link_to "Sign Out", destroy_user_session_path, method: :delete
-      -elsif admin_signed_in?
-        =link_to "Sign Out", destroy_admin_session_path, method: :delete
-      = yield
+        =render "shared/header_nav"
+        .row
+          =render "shared/side_bar"
+          =yield
+          =render "shared/managed_by"
+        =render "shared/footer"
+      -else
+        =render "shared/sign_in"
