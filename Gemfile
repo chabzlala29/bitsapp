@@ -25,4 +25,4 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 
 gem 'zurb-foundation'
-
+gem 'cancan'
