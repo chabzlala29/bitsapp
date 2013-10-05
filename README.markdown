@@ -25,13 +25,13 @@ Run Rails server on your local machine:
 
 1. ###Make sure your test database is migrated to the latest:
 
+
     rake db:drop RAILS_ENV=test
-    rake db:create RAILS_ENV=test
     rake db:migrate RAILS_ENV=test
+    rake db:test:prepare
+    
+2. ###Running the tests:
 
-2. ###Bundle
-
-3. ###Running the tests:
 
     bundle exec rspec (all rails unit tests)
     bundle exec cucumber -p selenium (all js integration tests)
