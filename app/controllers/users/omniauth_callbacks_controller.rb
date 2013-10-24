@@ -8,6 +8,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       sign_in_and_redirect @user, :event => :authentication #this will throw if @user is not activated
       set_flash_message(:notice, :success, :kind => "Facebook") if is_navigational_format?
     else
+      @user.delete
       session["devise.facebook_data"] = request.env["omniauth.auth"]
       redirect_to request_invitation_static_index_path, notice: "You have to ask the Admin to invite you!"
     end

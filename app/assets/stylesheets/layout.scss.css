@@ -1,0 +1,29 @@
+body{
+  background: url(/assets/brushed.png);
+}
+.branding-shit a{
+  color: black !important;
+  font-weight: bold;
+  font-size: 30px;
+  font-style: italic;
+  text-shadow: 1px 1px 2px white !important;
+}
+.top-bar{
+  background:none;
+
+
+  .top-bar-section{
+    background:none;
+
+  }
+
+
+  ul, li, a{
+
+    color:black;
+  }
+
+  .top-bar-section .right ul{
+    background:none;
+  }
+}

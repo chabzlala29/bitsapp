@@ -10,14 +10,17 @@
   %body
     .row
       .large-12.columns
-        -flash.each do |name, msg|
-          =content_tag :div, msg, class: name
+        - flash.each do |name, msg|
+          - if msg.is_a?(String)
+            %div{class: "alert-box #{name == :notice ? "success" : "alert"}"}
+              %a.close{"data-dismiss" => "alert"} ×
+              = content_tag :div, msg, :id => "flash_#{name}"
       -if user_signed_in?
         =render "shared/header_nav"
         .row
           =render "shared/side_bar"
-          =yield
           =render "shared/managed_by"
         =render "shared/footer"
       -else
         =render "shared/sign_in"
+      =yield
