@@ -1,0 +1,17 @@
+= form_for @activity do |f|
+  -if @activity.errors.any?
+    .large-12.columns
+      %div{class: "alert-box alert"}
+        %span= "#{pluralize(@activity.errors.count, "error")} prohibited this activity from being saved:"
+        %a.close{"data-dismiss" => "alert"} ×
+        %ul{style: "padding:0; margin: 0;list-style: none"}
+          -@activity.errors.full_messages.each do |msg|
+            %li= msg
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :description
+    = f.text_area :description
+  .actions
+    = f.submit 'Save'

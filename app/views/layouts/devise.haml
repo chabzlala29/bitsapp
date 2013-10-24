@@ -7,7 +7,7 @@
 / [if (gt IE 9)|!(IE)]><!
 %html{lang: "en"}
   =render "layouts/head"
-  %body
+  %body{style: "background: lightblue"}
     .row
       .large-12.columns
         - flash.each do |name, msg|
@@ -15,13 +15,4 @@
             %div{class: "alert-box #{name == :notice ? "success" : "alert"}"}
               %a.close{"data-dismiss" => "alert"} ×
               = content_tag :div, msg, :id => "flash_#{name}"
-      -if user_signed_in?
-        =render "shared/header_nav"
-        .row
-          =render "shared/side_bar"
-          .large-8.small-12.columns
-            =yield
-          =render "shared/managed_by"
-        =render "shared/footer"
-      -else
-        =render "shared/sign_in"
+      =yield

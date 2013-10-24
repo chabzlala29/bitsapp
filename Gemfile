@@ -12,6 +12,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 gem 'haml-rails'
+gem 'inherited_resources'
 
 group :doc do
   gem 'sdoc', require: false

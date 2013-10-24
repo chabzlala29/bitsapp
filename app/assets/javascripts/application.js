@@ -16,4 +16,8 @@
 //= require turbolinks
 //= require_tree .
 
-$(function(){ $(document).foundation(); });
+$(function(){ $(document).foundation(); 
+  $('.alert-box').find('.close').click(function(){
+    $(this).parent().remove();
+  })
+});

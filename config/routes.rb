@@ -1,4 +1,6 @@
 Bitsapp::Application.routes.draw do
+  resources :activities
+
   devise_for :admins
   devise_for :users, controllers: {
     invitations: 'users/invitations',
