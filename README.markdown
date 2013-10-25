@@ -10,7 +10,7 @@ git clone git@github.com:chabzlala29/bitsapp.git
 ```
 Create new file named ```.rvmrc```. into project's directory and insert the following script and save the file:
 ```bash
-    rvm use ruby-2.0.0-p247@<gemset name> --create
+rvm use ruby-2.0.0-p247@<gemset name> --create
 ```
 Go to the root of your project again to load ```.rvmrc``` file then run:
 ```bash
