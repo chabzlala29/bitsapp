@@ -6,7 +6,7 @@ BITS AMT aims to manage organization's activities and events with ease. It helps
 
 Clone the repository first:
 
-    git clone git@github.com:AT2/audition_magic.git
+    git clone git@github.com:chabzlala29/bitsapp.git
 
 Create new file named ```.rvmrc```. into project's directory and insert the following script and save the file:
 
@@ -21,7 +21,7 @@ Run Rails server on your local machine:
 
     rails s
     
-## Testing 
+## Testing (currently not configured)
 
 1. Make sure your test database is migrated to the latest:
 
